@@ -1,6 +1,6 @@
+import React, {useEffect, useRef, useState} from 'react';
+import Toast from 'react-native-toast-message';
 import {
-  Button,
-  Platform,
   Pressable,
   StyleSheet,
   Text,
@@ -8,20 +8,25 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import AuthNav from '../components/Navbars/AuthNav';
+import {Flow} from 'react-native-animated-spinkit';
 
-import React, {useEffect, useRef, useState} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
 import PhoneInput from 'react-native-phone-number-input';
 import {useNavigation} from '@react-navigation/native';
+import {getOtp} from '../requests/AuthRequests';
+import {isEmpty} from '../utils/functions';
 
-const EmailInputWrapper = () => {
-  const [number, onChangeNumber] = React.useState(null);
+const EmailInputWrapper = ({setEmail}) => {
+  const [email, onChangeEmail] = React.useState(null);
+
+  useEffect(() => {
+    setEmail(email);
+  }, [email]);
+
   return (
     <TextInput
-      className="border border-gray-200 p-4 rounded font-gilroy"
-      onChangeText={onChangeNumber}
-      value={number}
+      className="border border-gray-200 focus:border-black p-4 rounded font-gilroy"
+      onChangeText={onChangeEmail}
+      value={email}
       placeholder="Email Address"
       keyboardType="email-address"
       autoComplete="email"
@@ -32,12 +37,19 @@ const EmailInputWrapper = () => {
   );
 };
 
-const PhoneInputWrapper = () => {
+const PhoneInputWrapper = ({setPhone}) => {
   const [value, setValue] = useState('');
   const [formattedValue, setFormattedValue] = useState('');
   const [valid, setValid] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
   const phoneInput = useRef(null);
+
+  useEffect(() => {
+    const isValid = phoneInput.current?.isValidNumber(value);
+    setPhone(
+      isValid ? formattedValue : isEmpty(formattedValue) ? null : 'invalid',
+    );
+  }, [formattedValue]);
 
   const styles = StyleSheet.create({
     flagButtonStyle: {
@@ -132,14 +144,74 @@ const MethodPicker = ({setMethodPicked}) => {
 
 const Login = () => {
   const navigation = useNavigation();
+
   const [methodPicked, setMethodPicked] = useState('email');
+  const [isLoading, setIsLoading] = useState(false);
+
+  const [email, setEmail] = useState(null);
+  const [phone, setPhone] = useState(null);
+
+  const validateInput = () => {
+    let success = true;
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+    const subject = methodPicked === 'email' ? email : phone;
+
+    console.log('subject is', subject);
+
+    if (isEmpty(subject)) {
+      Toast.show({
+        type: 'error',
+        text1: `We need your ${methodPicked} to continue`,
+      });
+      return (success = false);
+    }
+
+    if (methodPicked === 'email' && !subject.match(emailRegex)) {
+      success = false;
+      Toast.show({
+        type: 'error',
+        text1: `That's an invalid email address`,
+      });
+    } else if (methodPicked === 'phone' && subject === 'invalid') {
+      success = false;
+      Toast.show({
+        type: 'error',
+        text1: `That's an invalid phone number`,
+      });
+    }
+
+    return success;
+  };
+
+  const handleLogin = () => {
+    setIsLoading(true);
+
+    if (!validateInput()) return setIsLoading(false);
+
+    const _userid = methodPicked === 'email' ? email : phone;
+
+    getOtp({userid: _userid})
+      .then(response => {
+        navigation.navigate('OTP', {method: _userid});
+      })
+      .catch(error => {
+        console.log(error.response.data);
+        error.response.data?.non_field_errors
+          ? navigation.navigate('Signup', {method: _userid})
+          : Toast.show({
+              type: 'error',
+              text1: 'Network error!',
+              text2: "It's on our end 😓, try again in a bit",
+            });
+      })
+      .finally(() => setIsLoading(false));
+  };
+
   return (
     <View className="bg-white h-screen px-4 py-10">
       {/* <AuthNav /> */}
       <View className="flex flex-col gap-4">
-        <Text className="font-gilroy font-semibold text-xl">
-          Log in or sign up
-        </Text>
+        <Text className="font-gilroybold text-xl">Log in or sign up</Text>
 
         <View>
           <MethodPicker setMethodPicked={setMethodPicked} />
@@ -148,11 +220,11 @@ const Login = () => {
         <View>
           {methodPicked === 'email' ? (
             <View>
-              <EmailInputWrapper />
+              <EmailInputWrapper setEmail={setEmail} />
             </View>
           ) : (
             <View>
-              <PhoneInputWrapper />
+              <PhoneInputWrapper setPhone={setPhone} />
             </View>
           )}
         </View>
@@ -162,13 +234,15 @@ const Login = () => {
         </Text>
 
         <TouchableOpacity
-          className="rounded bg-ay-green"
-          onPress={() =>
-            navigation.navigate('Signup', {email: 'nfs_555@yahoo.com'})
-          }>
-          <Text className="font-gilroy uppercase font-bold text-white p-4 text-center">
-            Proceed
-          </Text>
+          className="rounded bg-ay-green flex flex-row justify-center"
+          onPress={() => handleLogin()}>
+          {isLoading ? (
+            <Flow color="white" size={38} className="my-5" />
+          ) : (
+            <Text className="font-gilroy font-bold uppercase text-white text-center p-4">
+              Proceed
+            </Text>
+          )}
         </TouchableOpacity>
       </View>
     </View>

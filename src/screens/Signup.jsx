@@ -4,6 +4,7 @@ import React, {useRef, useState} from 'react';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import PhoneInput from 'react-native-phone-number-input';
 import Counter from '../components/Counter';
+import {BDT_TOTAL} from '../config';
 
 const PhoneInputWrapper = () => {
   const [value, setValue] = useState('');
@@ -37,6 +38,7 @@ const PhoneInputWrapper = () => {
 };
 
 const Signup = ({route}) => {
+  const [qty, setQty] = useState(1);
   const [name, setName] = useState(null);
   const [phone, setPhone] = useState(null);
   const email = route.params?.email;
@@ -62,11 +64,17 @@ const Signup = ({route}) => {
           <PhoneInputWrapper />
         </View>
 
-        <View>
-          <Text className="font-gilroy font-bold pb-4">
-            Number of scholarships
+        <View className="flex flex-row items-end justify-between pt-5">
+          <View>
+            <Text className="font-gilroy font-bold pb-4">
+              Number of scholarships
+            </Text>
+            <Counter updateQty={setQty} />
+          </View>
+          <Text className="font-gilroybold text-xl leading-5">
+            BDT {BDT_TOTAL * qty}/
+            <Text className="font-gilroymedium">month</Text>
           </Text>
-          <Counter />
         </View>
       </View>
     </View>

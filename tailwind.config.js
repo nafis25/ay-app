@@ -8,7 +8,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        gilroybold: ['Gilroy-Bold'],
+        gilroysemibold: ['Gilroy-SemiBold'],
+        gilroymedium: ['Gilroy-Medium'],
+        gilroylight: ['Gilroy-Light'],
         gilroy: ['Gilroy'],
+        indie: ['IndieFlower'],
       },
       colors: {
         'ay-green': '#1dc468',
