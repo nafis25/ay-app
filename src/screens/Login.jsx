@@ -1,11 +1,13 @@
 import React, {useEffect, useRef, useState} from 'react';
 import Toast from 'react-native-toast-message';
 import {
+  Keyboard,
   Pressable,
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   View,
 } from 'react-native';
 import {Flow} from 'react-native-animated-spinkit';
@@ -14,6 +16,7 @@ import PhoneInput from 'react-native-phone-number-input';
 import {useNavigation} from '@react-navigation/native';
 import {getOtp} from '../requests/AuthRequests';
 import {isEmpty} from '../utils/functions';
+import {setInitRoute} from '../requests/TokenHandler';
 
 const EmailInputWrapper = ({setEmail}) => {
   const [email, onChangeEmail] = React.useState(null);
@@ -156,8 +159,6 @@ const Login = () => {
     const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
     const subject = methodPicked === 'email' ? email : phone;
 
-    console.log('subject is', subject);
-
     if (isEmpty(subject)) {
       Toast.show({
         type: 'error',
@@ -184,6 +185,7 @@ const Login = () => {
   };
 
   const handleLogin = () => {
+    Keyboard.dismiss();
     setIsLoading(true);
 
     if (!validateInput()) return setIsLoading(false);
@@ -191,61 +193,67 @@ const Login = () => {
     const _userid = methodPicked === 'email' ? email : phone;
 
     getOtp({userid: _userid})
-      .then(response => {
-        navigation.navigate('OTP', {method: _userid});
+      .then(async () => {
+        await setInitRoute('Home');
+        navigation.navigate('OTP', {userid: _userid, method: methodPicked});
       })
       .catch(error => {
         console.log(error.response.data);
         error.response.data?.non_field_errors
-          ? navigation.navigate('Signup', {method: _userid})
+          ? navigation.navigate('Signup', {
+              userid: _userid,
+              method: methodPicked,
+            })
           : Toast.show({
               type: 'error',
-              text1: 'Network error!',
-              text2: "It's on our end 😓, try again in a bit",
+              text1: 'OTP error!',
+              text2: 'Failed to fetch an OTP 😓, try again in a bit',
             });
       })
       .finally(() => setIsLoading(false));
   };
 
   return (
-    <View className="bg-white h-screen px-4 py-10">
-      {/* <AuthNav /> */}
-      <View className="flex flex-col gap-4">
-        <Text className="font-gilroybold text-xl">Log in or sign up</Text>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <View className="bg-white h-screen px-4 py-10">
+        {/* <AuthNav /> */}
+        <View className="flex flex-col gap-4">
+          <Text className="font-gilroybold text-xl">Log in or sign up</Text>
 
-        <View>
-          <MethodPicker setMethodPicked={setMethodPicked} />
+          <View>
+            <MethodPicker setMethodPicked={setMethodPicked} />
+          </View>
+
+          <View>
+            {methodPicked === 'email' ? (
+              <View>
+                <EmailInputWrapper setEmail={setEmail} />
+              </View>
+            ) : (
+              <View>
+                <PhoneInputWrapper setPhone={setPhone} />
+              </View>
+            )}
+          </View>
+
+          <Text className="font-gilroy text-xs">
+            We'll send an OTP to confirm
+          </Text>
+
+          <TouchableOpacity
+            className="rounded bg-ay-green flex flex-row justify-center"
+            onPress={() => handleLogin()}>
+            {isLoading ? (
+              <Flow color="white" size={38} className="my-5" />
+            ) : (
+              <Text className="font-gilroy font-bold uppercase text-white text-center p-4">
+                Proceed
+              </Text>
+            )}
+          </TouchableOpacity>
         </View>
-
-        <View>
-          {methodPicked === 'email' ? (
-            <View>
-              <EmailInputWrapper setEmail={setEmail} />
-            </View>
-          ) : (
-            <View>
-              <PhoneInputWrapper setPhone={setPhone} />
-            </View>
-          )}
-        </View>
-
-        <Text className="font-gilroy text-xs">
-          We'll send an OTP to confirm
-        </Text>
-
-        <TouchableOpacity
-          className="rounded bg-ay-green flex flex-row justify-center"
-          onPress={() => handleLogin()}>
-          {isLoading ? (
-            <Flow color="white" size={38} className="my-5" />
-          ) : (
-            <Text className="font-gilroy font-bold uppercase text-white text-center p-4">
-              Proceed
-            </Text>
-          )}
-        </TouchableOpacity>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 };
 

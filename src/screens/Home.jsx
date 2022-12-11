@@ -1,11 +1,13 @@
 import {Button, Text, View} from 'react-native';
 
-import React from 'react';
+import React, {useContext} from 'react';
+import {AuthContext} from '../contexts/AuthContext';
 
 const Home = () => {
+  const {user} = useContext(AuthContext);
   return (
     <View className="flex-1 justify-center items-center">
-      <Text>Home Screen</Text>
+      {user?.name && <Text>Hey {user?.name}!</Text>}
       <Button title="Click Here" onPress={() => alert('Button Clicked!')} />
     </View>
   );

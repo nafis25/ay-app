@@ -58,6 +58,7 @@ const Counter = ({updateQty}) => {
         <TextInput
           className="bg-gray-100 w-11 py-3 text-center font-gilroy font-bold"
           value={qty.toString()}
+          editable={false}
         />
         <Pressable
           onPress={() => incrementQty()}

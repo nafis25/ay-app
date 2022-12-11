@@ -1,5 +1,8 @@
 import React from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {
+  createNativeStackNavigator,
+  TransitionPresets,
+} from '@react-navigation/native-stack';
 import {
   LoginScreen,
   OnboardingScreen,
@@ -7,7 +10,7 @@ import {
   OtpScreen,
 } from '../screens';
 import AYWhiteLogo from '../../assets/svgs/logos/alteryouth_white.svg';
-import {View} from 'react-native';
+import {Platform} from 'react-native';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,7 +27,12 @@ const AuthStack = () => {
       <Stack.Screen
         name="OTP"
         component={OtpScreen}
-        options={{presentation: 'modal'}}
+        options={{
+          presentation: 'modal',
+          headerShown: false,
+          ...(Platform.OS === 'android' &&
+            TransitionPresets.ModalPresentationIOS),
+        }}
       />
       <Stack.Screen name="Onboarding" component={OnboardingScreen} />
     </Stack.Navigator>
