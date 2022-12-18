@@ -15,8 +15,8 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(
-  config => {
-    const token = getLocalAccessToken();
+  async config => {
+    const token = await getLocalAccessToken();
 
     if (token && Object.values(portalRoutes).includes(config.url))
       config.headers['Authorization'] = 'JWT ' + token;
@@ -46,11 +46,11 @@ instance.interceptors.response.use(
 
       try {
         const rs = await instance.post('auth/token-auth/refresh', {
-          token: getLocalRefreshToken(),
+          token: await getLocalRefreshToken(),
         });
 
         const {token} = rs.data;
-        updateLocalAccessToken(token);
+        await updateLocalAccessToken(token);
 
         return instance(originalConfig);
       } catch (_error) {

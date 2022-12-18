@@ -194,7 +194,7 @@ const Login = () => {
 
     getOtp({userid: _userid})
       .then(async () => {
-        await setInitRoute('Home');
+        await setInitRoute('My Scholarships');
         navigation.navigate('OTP', {userid: _userid, method: methodPicked});
       })
       .catch(error => {

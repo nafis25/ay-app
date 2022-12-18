@@ -17,6 +17,7 @@ const Routes = () => {
   }, []);
 
   if (authLoading) {
+    console.log('activity from auth loading');
     return (
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <ActivityIndicator size={'large'} />

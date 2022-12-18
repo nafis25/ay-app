@@ -3,11 +3,13 @@ import React, {useContext} from 'react';
 import {
   DrawerContentScrollView,
   DrawerItemList,
+  DrawerItem,
 } from '@react-navigation/drawer';
 import {AuthContext} from '../contexts/AuthContext';
 
 const Menu = props => {
   const {logout} = useContext(AuthContext);
+  const {navigation} = props;
 
   const handleLogout = async () => {
     await logout();
@@ -15,9 +17,11 @@ const Menu = props => {
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
-      <Pressable className="p-4" onPress={() => handleLogout()}>
-        <Text>Logout</Text>
-      </Pressable>
+      <DrawerItem
+        labelStyle={{fontFamily: 'gilroy'}}
+        label="Logout"
+        onPress={() => handleLogout()}
+      />
     </DrawerContentScrollView>
   );
 };
