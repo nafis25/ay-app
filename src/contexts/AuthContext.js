@@ -1,5 +1,6 @@
 import axios from 'axios';
-import {createContext, useReducer, useMemo} from 'react';
+import {createContext, useReducer} from 'react';
+import {useQuery, useQueryClient} from 'react-query';
 import {locationApi, getStats} from '../requests/AuthRequests';
 import {
   getLocalAccessToken,
@@ -136,6 +137,7 @@ const authReducer = (state, {payload, type}) => {
 
 const AuthProvider = props => {
   const [state, dispatch] = useReducer(authReducer, initialState);
+  const queryClient = useQueryClient();
 
   const checkAuth = async () => {
     dispatch({type: 'AUTH_LOADING'});
@@ -159,6 +161,7 @@ const AuthProvider = props => {
   const logout = async () => {
     return new Promise((resolve, _) => {
       dispatch({type: 'LOGOUT'});
+      queryClient.removeQueries('portal');
       removeTokens();
       removeUser();
       removeUserName();

@@ -1,5 +1,5 @@
+import {useContext, useEffect} from 'react';
 import {ActivityIndicator, Dimensions, View} from 'react-native';
-import React from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import {
   HomeScreen,
@@ -12,26 +12,16 @@ import {
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {usePortal} from '../requests/queries';
+import {PortalContext} from '../contexts/PortalContext';
+import {isEmpty} from '../utils/functions';
 
 const Tab = createMaterialTopTabNavigator();
 
 const PortalTabs = () => {
-  const {isLoading: portalLoading, isFetching: portalFetching} = usePortal();
-
-  if (portalLoading || portalFetching) {
-    console.log('activity from portal tabs');
-    return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <ActivityIndicator size={'large'} />
-      </View>
-    );
-  }
-
   return (
     <Tab.Navigator
       tabBarPosition="bottom"
       screenOptions={{
-        headerShown: false,
         // animationEnabled: false,
         tabBarIndicatorStyle: {
           position: 'absolute',

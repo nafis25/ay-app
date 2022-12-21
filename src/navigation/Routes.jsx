@@ -4,7 +4,6 @@ import PortalStack from './PortalStack';
 import AuthStack from './AuthStack';
 import {ActivityIndicator, View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Stack = createNativeStackNavigator();
 
