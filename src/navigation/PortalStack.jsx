@@ -87,9 +87,7 @@ const PortalStack = () => {
       drawerContent={props => <Menu {...props} />}
       screenOptions={{
         drawerType: 'front',
-        drawerHideStatusBarOnOpen: true,
         drawerActiveTintColor: '#1dc468',
-
         drawerLabelStyle: {fontFamily: 'gilroy'},
       }}>
       <Drawer.Screen

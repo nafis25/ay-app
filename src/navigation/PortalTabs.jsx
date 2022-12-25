@@ -23,6 +23,7 @@ const PortalTabs = () => {
       tabBarPosition="bottom"
       screenOptions={{
         // animationEnabled: false,
+
         tabBarIndicatorStyle: {
           position: 'absolute',
           top: 0,
@@ -31,7 +32,7 @@ const PortalTabs = () => {
           width: 40,
           left: (Dimensions.get('window').width / 5 - 40) / 2,
         },
-        tabBarStyle: {paddingBottom: 30},
+        // tabBarStyle: {paddingBottom: 30},
         tabBarIconStyle: {
           // borderWidth: 1,
           // borderColor: 'green',

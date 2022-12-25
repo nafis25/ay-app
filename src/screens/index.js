@@ -14,6 +14,8 @@ import NotificationsScreen from './Notifications';
 import SaveBkashScreen from './SaveBkash';
 import SupportScreen from './Support';
 import AboutScreen from './About';
+import WebContainer from './WebContainer';
+import PaymentFail from './PaymentFail';
 
 export {
   HomeScreen,
@@ -32,4 +34,6 @@ export {
   SaveBkashScreen,
   SupportScreen,
   AboutScreen,
+  WebContainer,
+  PaymentFail,
 };

@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import AntD from 'react-native-vector-icons/AntDesign';
 import Toast from 'react-native-toast-message';
 
-const Counter = ({updateQty}) => {
+const Counter = ({updateQty, small}) => {
   const jamAt = 10;
   const [qty, setQty] = useState(1);
   const [minusBtnActive, setminusBtnActive] = useState();
@@ -44,33 +44,33 @@ const Counter = ({updateQty}) => {
   }, [qty, jamAt]);
 
   return (
-    <>
-      <View className="flex flex-row items-center">
-        <Pressable
-          onPress={() => decrementQty()}
-          className={`p-3 ${
-            minusBtnActive
-              ? 'bg-ay-green border-green-700'
-              : 'bg-gray-500 border-gray-700'
-          } rounded border-2`}>
-          <AntD name="minus" color={'white'} />
-        </Pressable>
-        <TextInput
-          className="bg-gray-100 w-11 py-3 text-center font-gilroy font-bold"
-          value={qty.toString()}
-          editable={false}
-        />
-        <Pressable
-          onPress={() => incrementQty()}
-          className={`p-3 ${
-            plusBtnActive
-              ? 'bg-ay-green border-green-700'
-              : 'bg-gray-500 border-gray-700'
-          } rounded border-2`}>
-          <AntD name="plus" color={'white'} />
-        </Pressable>
-      </View>
-    </>
+    <View className="flex flex-row items-center">
+      <Pressable
+        onPress={() => decrementQty()}
+        className={`${
+          minusBtnActive
+            ? 'bg-ay-green border-green-700'
+            : 'bg-gray-500 border-gray-700'
+        } rounded border-2`}>
+        <AntD style={{padding: small ? 8 : 12}} name="minus" color={'white'} />
+      </Pressable>
+      <TextInput
+        className={`bg-gray-100 ${
+          small ? 'w-8 py-2' : 'w-11 py-3'
+        } text-center font-gilroy font-bold text-xs`}
+        value={qty.toString()}
+        editable={false}
+      />
+      <Pressable
+        onPress={() => incrementQty()}
+        className={`${
+          plusBtnActive
+            ? 'bg-ay-green border-green-700'
+            : 'bg-gray-500 border-gray-700'
+        } rounded border-2`}>
+        <AntD style={{padding: small ? 8 : 12}} name="plus" color={'white'} />
+      </Pressable>
+    </View>
   );
 };
 

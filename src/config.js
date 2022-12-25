@@ -9,9 +9,9 @@ const BDT_SCHOLARSHIP_AMOUNT = 1000;
 const BDT_SERVICE_CHARGE = 200;
 const BDT_TOTAL = 1200;
 const USD_SCHOLARSHIP_AMOUNT = 12;
-const USD_SERVICE_CHARGE = 2.7;
+const USD_SERVICE_CHARGE = 2.2;
 const USD_PAYMENT_CHARGE = 1;
-const USD_TOTAL = 15.7;
+const USD_TOTAL = 14.2;
 
 const fam_photo_url =
   'https://alteryouth-test.s3.us-east-2.amazonaws.com/demo/0101011203_transfer.jpg';

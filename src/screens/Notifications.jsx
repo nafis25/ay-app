@@ -4,11 +4,12 @@ import {useNotifications, usePortal} from '../requests/queries';
 import {Flow} from 'react-native-animated-spinkit';
 import {isEmpty, recencyDateFormatter} from '../utils/functions';
 import {Badge} from '@rneui/base';
-import {ScrollView} from 'react-native';
+import {ScrollView as RNScrollView} from 'react-native';
 import {updateNotifications} from '../requests/PortalRequests';
 import {useContext} from 'react';
 import {PortalContext} from '../contexts/PortalContext';
 import {useNavigation} from '@react-navigation/native';
+import {styled} from 'nativewind';
 
 const Notifications = () => {
   const {
@@ -55,59 +56,63 @@ const Notifications = () => {
     }
   };
 
-  // if (nootyLoading || nootyFetching)
-  //   return (
-  //     <View className="flex-1 justify-center items-center bg-white h-screen">
-  //       <Flow color="#1dc468" size={38} />
-  //     </View>
-  //   );
+  if (nootyLoading || nootyFetching)
+    return (
+      <View className="flex-1 justify-center items-center bg-white h-screen">
+        <Flow color="#1dc468" size={38} />
+      </View>
+    );
 
   return (
-    <View className="bg-white h-screen px-4 ">
+    <ScrollView className="bg-white" contentContainerStyle="px-4 py-5">
       {isEmpty(nootyResponse?.data) ? (
         <Text className="fw-bold">No notifications to show</Text>
       ) : (
-        <ScrollView className="py-5">
-          <View className="flex flex-col-reverse gap-4">
-            {nootyResponse?.data.map((notification, index) => (
-              <Pressable
-                key={index}
-                onPress={() => handleNotification(notification)}
-                className="rounded-lg border border-gray-200 px-5 py-6">
-                <Text
-                  className={`${
-                    notification.is_seen ? 'text-gray-400' : 'text-current'
-                  } font-gilroybold mb-2`}>
-                  {notification.title}
-                  {!notification.is_seen && (
-                    <Badge
-                      containerStyle={{marginLeft: 5, marginBottom: 1}}
-                      badgeStyle={{backgroundColor: '#1dc468'}}
-                    />
-                  )}
-                </Text>
-                <Text
-                  className={`${
-                    notification.is_seen ? 'text-gray-400' : 'text-current'
-                  } font-gilroymedium mb-4 leading-5`}>
-                  {notification.body}
-                </Text>
+        <View className="flex flex-col-reverse gap-4">
+          {nootyResponse?.data.map((notification, index) => (
+            <Pressable
+              key={index}
+              onPress={() => handleNotification(notification)}
+              className="rounded-lg border border-gray-200 px-5 py-6">
+              <Text
+                className={`${
+                  notification.is_seen ? 'text-gray-400' : 'text-current'
+                } font-gilroybold mb-2`}>
+                {notification.title}
+                {!notification.is_seen && (
+                  <Badge
+                    containerStyle={{marginLeft: 5, marginBottom: 1}}
+                    badgeStyle={{backgroundColor: '#1dc468'}}
+                  />
+                )}
+              </Text>
+              <Text
+                className={`${
+                  notification.is_seen ? 'text-gray-400' : 'text-current'
+                } font-gilroymedium mb-4 leading-5`}>
+                {notification.body}
+              </Text>
 
-                <Text
-                  className={
-                    notification.is_seen
-                      ? 'text-gray-400 font-gilroymedium'
-                      : 'text-ay-green font-gilroybold'
-                  }>
-                  {recencyDateFormatter(notification.created_at, 'nooty')}
-                </Text>
-              </Pressable>
-            ))}
-          </View>
-        </ScrollView>
+              <Text
+                className={
+                  notification.is_seen
+                    ? 'text-gray-400 font-gilroymedium'
+                    : 'text-ay-green font-gilroybold'
+                }>
+                {recencyDateFormatter(notification.created_at, 'nooty')}
+              </Text>
+            </Pressable>
+          ))}
+        </View>
       )}
-    </View>
+    </ScrollView>
   );
 };
+
+const ScrollView = styled(RNScrollView, {
+  props: {
+    contentContainerStyle: true,
+  },
+});
 
 export default Notifications;

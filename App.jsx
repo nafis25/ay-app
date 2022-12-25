@@ -2,12 +2,14 @@
 
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
+import {SheetProvider} from 'react-native-actions-sheet';
 import {AuthProvider} from './src/contexts/AuthContext';
 import {PortalProvider} from './src/contexts/PortalContext';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import Routes from './src/navigation/Routes';
 import Toast from 'react-native-toast-message';
 
+import './src/components/Sheets/sheets';
 import {QueryClient, QueryClientProvider} from 'react-query';
 
 function App() {
@@ -16,14 +18,17 @@ function App() {
     <SafeAreaProvider>
       <QueryClientProvider client={queryClient}>
         <NavigationContainer>
-          <AuthProvider>
-            <PortalProvider>
-              <Routes />
-            </PortalProvider>
-          </AuthProvider>
+          <SheetProvider>
+            <AuthProvider>
+              <PortalProvider>
+                <Routes />
+              </PortalProvider>
+            </AuthProvider>
+          </SheetProvider>
         </NavigationContainer>
       </QueryClientProvider>
-      <Toast />
+
+      <Toast position="bottom" />
     </SafeAreaProvider>
   );
 }

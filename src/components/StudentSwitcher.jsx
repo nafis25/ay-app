@@ -58,7 +58,6 @@ const StudentSwitcher = () => {
 };
 
 const StudentBlip = memo(({src}) => {
-  const StyledImage = styled(Image);
   return (
     <StyledImage
       PlaceholderContent={
@@ -110,6 +109,8 @@ const Dropdown = ({
     </Modal>
   );
 };
+
+const StyledImage = styled(Image);
 
 const styles = StyleSheet.create({
   button: {

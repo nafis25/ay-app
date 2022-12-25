@@ -4,6 +4,7 @@ import PortalStack from './PortalStack';
 import AuthStack from './AuthStack';
 import {ActivityIndicator, View} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {WebContainer} from '../screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -35,6 +36,14 @@ const Routes = () => {
       ) : (
         <Stack.Screen name="Portal" component={PortalStack} />
       )}
+
+      <Stack.Group navigationKey={isLoggedIn ? 'user' : 'guest'}>
+        <Stack.Screen
+          name="WebContainer"
+          component={WebContainer}
+          options={{presentation: 'fullScreenModal'}}
+        />
+      </Stack.Group>
     </Stack.Navigator>
   );
 };
