@@ -8,10 +8,9 @@ import {ScrollView as RNScrollView} from 'react-native';
 import {updateNotifications} from '../requests/PortalRequests';
 import {useContext} from 'react';
 import {PortalContext} from '../contexts/PortalContext';
-import {useNavigation} from '@react-navigation/native';
 import {styled} from 'nativewind';
 
-const Notifications = () => {
+const Notifications = ({navigation}) => {
   const {
     data: nootyResponse,
     isLoading: nootyLoading,
@@ -20,8 +19,6 @@ const Notifications = () => {
   } = useNotifications();
 
   const {data: portalResponse} = usePortal();
-
-  const navigation = useNavigation();
 
   const {setSelectedStudent} = useContext(PortalContext);
 

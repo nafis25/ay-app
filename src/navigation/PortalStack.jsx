@@ -6,6 +6,7 @@ import {
   CheckoutScreen,
   CongoScreen,
   NotificationsScreen,
+  PaymentFail,
   SaveBkashScreen,
   SettingsScreen,
   SupportScreen,
@@ -15,7 +16,6 @@ import Menu from '../components/Menu';
 import {useEffect} from 'react';
 import {getInitRoute, getLocalAccessToken} from '../requests/TokenHandler';
 import AYWhiteLogo from '../../assets/svgs/logos/alteryouth_white.svg';
-import {useNavigation} from '@react-navigation/native';
 import StudentSwitcher from '../components/StudentSwitcher';
 import {usePortal} from '../requests/queries';
 import {isEmpty} from '../utils/functions';
@@ -25,8 +25,7 @@ import {AuthContext} from '../contexts/AuthContext';
 
 const Drawer = createDrawerNavigator();
 
-const PortalStack = () => {
-  const navigation = useNavigation();
+const PortalStack = ({navigation}) => {
   const queryClient = useQueryClient();
   const {
     isLoading: portalLoading,
@@ -127,6 +126,7 @@ const PortalStack = () => {
         }}>
         <Drawer.Screen name="Checkout" component={CheckoutScreen} />
         <Drawer.Screen name="Congratulations" component={CongoScreen} />
+        <Drawer.Screen name="PaymentFail" component={PaymentFail} />
         <Drawer.Screen name="SaveBkash" component={SaveBkashScreen} />
       </Drawer.Group>
     </Drawer.Navigator>

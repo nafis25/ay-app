@@ -36,7 +36,7 @@ const PaymentOptions = ({
         });
       }
     } catch (error) {
-      console.log(error, 'wtf man');
+      console.log('PaymentOptions.jsx: ', error);
     }
   };
 

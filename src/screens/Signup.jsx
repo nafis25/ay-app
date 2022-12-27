@@ -16,7 +16,6 @@ import {Flow} from 'react-native-animated-spinkit';
 import {getOtp, userCreate} from '../requests/AuthRequests';
 import Toast from 'react-native-toast-message';
 import {isEmpty} from '../utils/functions';
-import {useNavigation} from '@react-navigation/native';
 import {setInitRoute} from '../requests/TokenHandler';
 
 const PhoneInputWrapper = ({setPhone}) => {
@@ -99,9 +98,7 @@ const EmailInputWrapper = ({setEmail}) => {
   );
 };
 
-const Signup = ({route}) => {
-  const navigation = useNavigation();
-
+const Signup = ({route, navigation}) => {
   const [isLoading, setIsLoading] = useState(false);
   const method = route.params?.method;
   const userid = route.params?.userid;

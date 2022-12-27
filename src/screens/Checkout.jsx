@@ -16,11 +16,8 @@ import {usePortal, useSiteData} from '../requests/queries';
 import {BDT_SCHOLARSHIP_AMOUNT, BDT_SERVICE_CHARGE, USD_TOTAL} from '../config';
 import {styled} from 'nativewind';
 import PaymentOptions from '../components/PaymentOptions/PaymentOptions';
-import {useNavigation} from '@react-navigation/native';
 
-const Checkout = () => {
-  const navigation = useNavigation();
-
+const Checkout = ({navigation}) => {
   const {data: statResponse, status: statStatus} = useSiteData();
 
   const {data: portalResponse} = usePortal();

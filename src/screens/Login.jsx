@@ -13,10 +13,8 @@ import {
 import {Flow} from 'react-native-animated-spinkit';
 
 import PhoneInput from 'react-native-phone-number-input';
-import {useNavigation} from '@react-navigation/native';
 import {getOtp} from '../requests/AuthRequests';
 import {isEmpty} from '../utils/functions';
-import {setInitRoute} from '../requests/TokenHandler';
 
 const EmailInputWrapper = ({setEmail}) => {
   const [email, onChangeEmail] = React.useState(null);
@@ -145,9 +143,7 @@ const MethodPicker = ({setMethodPicked}) => {
   );
 };
 
-const Login = () => {
-  const navigation = useNavigation();
-
+const Login = ({navigation}) => {
   const [methodPicked, setMethodPicked] = useState('email');
   const [isLoading, setIsLoading] = useState(false);
 

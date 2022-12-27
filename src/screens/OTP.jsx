@@ -3,14 +3,12 @@ import AntD from 'react-native-vector-icons/AntDesign';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {useNavigation} from '@react-navigation/native';
 import {useContext, useEffect, useState} from 'react';
 import {verifyOtp} from '../requests/AuthRequests';
 import {AuthContext} from '../contexts/AuthContext';
 import Toast from 'react-native-toast-message';
 
-const OTP = ({route}) => {
-  const navigation = useNavigation();
+const OTP = ({route, navigation}) => {
   const {login} = useContext(AuthContext);
 
   const method = route.params?.method;
