@@ -7,4 +7,5 @@ export default {
   ific: require('../assets/icons/ific-bank.png'),
   prime: require('../assets/icons/prime-bank.png'),
   ucb: require('../assets/icons/ucb-bank.png'),
+  congo: require('../assets/images/congo_banner.jpg'),
 };

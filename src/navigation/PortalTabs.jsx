@@ -22,8 +22,8 @@ const PortalTabs = () => {
     <Tab.Navigator
       tabBarPosition="bottom"
       screenOptions={{
-        // animationEnabled: false,
-
+        animationEnabled: false,
+        swipeEnabled: false,
         tabBarIndicatorStyle: {
           position: 'absolute',
           top: 0,

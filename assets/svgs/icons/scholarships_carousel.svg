@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="Group_6951" data-name="Group 6951" transform="translate(-66.672 -521)">
+    <circle id="Ellipse_646" data-name="Ellipse 646" cx="15" cy="15" r="15" transform="translate(66.672 521)" fill="rgba(29,196,104,0.1)"/>
+    <g id="Group_6950" data-name="Group 6950" transform="translate(74.132 531.947)">
+      <g id="Logo_Ay" data-name="Logo Ay" transform="translate(0 0)">
+        <g id="Layer_1" data-name="Layer 1">
+          <g id="Group_2021" data-name="Group 2021">
+            <path id="Path_2256" data-name="Path 2256" d="M15.08,1.892c-2.317.678-4.63,1.362-6.95,2.025a1.562,1.562,0,0,1-.78-.007C4.9,3.264,2.465,2.6,0,1.752c1.089-.285,2.209-.488,3.263-.869a12.78,12.78,0,0,1,9.561.095,18.5,18.5,0,0,0,2.253.618c0,.1,0,.2,0,.3" transform="translate(0 -0.003)" fill="#1dc468" fill-rule="evenodd"/>
+            <path id="Path_2257" data-name="Path 2257" d="M54.555,78.467a10.672,10.672,0,0,1-4.076-.684c-.719-.219-1.261-2.471-.736-3.022a.592.592,0,0,1,.4-.122,1.127,1.127,0,0,1,.432.122,9.836,9.836,0,0,0,7.9.051c.9-.342,1.1.007,1.1.867-.011,1.964-.008,2.023-1.95,2.474a10.645,10.645,0,0,1-3.068.313" transform="translate(-46.712 -70.387)" fill="#1dc468" fill-rule="evenodd"/>
+            <path id="Path_2258" data-name="Path 2258" d="M9.216,61.79c.216.087.193.277.2.44.072,1.139.134,2.273.208,3.408.025.382-.018.744-.491.737s-.619-.31-.558-.765c.142-1.078.26-2.16.4-3.239.026-.211.007-.456.243-.581" transform="translate(-8.076 -58.27)" fill="#1dc468" fill-rule="evenodd"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

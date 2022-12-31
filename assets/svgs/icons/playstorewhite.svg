@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="171.385" height="69.925" viewBox="0 0 171.385 69.925">
+  <defs>
+    <filter id="background" x="0" y="0" width="171.385" height="69.925" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="3.021" y1="0.798" x2="2.909" y2="0.769" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#00a0ff"/>
+      <stop offset="0.007" stop-color="#00a1ff"/>
+      <stop offset="0.26" stop-color="#00beff"/>
+      <stop offset="0.512" stop-color="#00d2ff"/>
+      <stop offset="0.76" stop-color="#00dfff"/>
+      <stop offset="1" stop-color="#00e3ff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="2.632" y1="1.244" x2="2.371" y2="1.244" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffe000"/>
+      <stop offset="0.409" stop-color="#ffbd00"/>
+      <stop offset="0.775" stop-color="orange"/>
+      <stop offset="1" stop-color="#ff9c00"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="2.36" y1="0.504" x2="2.27" y2="0.351" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ff3a44"/>
+      <stop offset="1" stop-color="#c31162"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-4" x1="2.29" y1="1.652" x2="2.331" y2="1.583" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#32a071"/>
+      <stop offset="0.069" stop-color="#2da771"/>
+      <stop offset="0.476" stop-color="#15cf74"/>
+      <stop offset="0.801" stop-color="#06e775"/>
+      <stop offset="1" stop-color="#00f076"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_7006" data-name="Group 7006" transform="translate(9 6)">
+    <g id="Page-1" transform="translate(0)">
+      <g id="Artboard-1">
+        <g id="App-Store">
+          <g transform="matrix(1, 0, 0, 1, -9, -6)" filter="url(#background)">
+            <path id="background-2" data-name="background" d="M5.231,0H146.154a6.236,6.236,0,0,1,6.231,6.231V45.694a6.236,6.236,0,0,1-6.231,6.231H5.231A6.236,6.236,0,0,1-1,45.694V6.231A6.236,6.236,0,0,1,5.231,0Z" transform="translate(10 6)" fill="#fff"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="google-play-4" transform="translate(13.867 14.384)">
+      <path id="Path_5334" data-name="Path 5334" d="M.528,24.377A2.35,2.35,0,0,0,0,26.014V51.666A2.241,2.241,0,0,0,.541,53.29l.091.077L15.005,38.993V38.67L.619,24.3Z" transform="translate(0 -23.919)" fill-rule="evenodd" fill="url(#linear-gradient)"/>
+      <path id="Path_5335" data-name="Path 5335" d="M961.094,645.027l-4.794-4.8V639.9l4.8-4.8.1.064,5.672,3.223c1.624.916,1.624,2.424,0,3.352l-5.672,3.223Z" transform="translate(-941.307 -625.143)" fill-rule="evenodd" fill="url(#linear-gradient-2)"/>
+      <path id="Path_5336" data-name="Path 5336" d="M53.062,956.6l-4.9-4.9L33.7,966.164a1.9,1.9,0,0,0,2.411.077Z" transform="translate(-33.172 -936.78)" fill-rule="evenodd" fill="url(#linear-gradient-3)"/>
+      <path id="Path_5337" data-name="Path 5337" d="M53.062,10.295,36.111.665A1.881,1.881,0,0,0,33.7.742l14.463,14.45Z" transform="translate(-33.172 -0.272)" fill-rule="evenodd" fill="url(#linear-gradient-4)"/>
+      <path id="Path_5338" data-name="Path 5338" d="M53.746,1257.6l-16.835,9.565a1.912,1.912,0,0,1-2.32.012l-.091.091.091.077a1.915,1.915,0,0,0,2.32-.013l16.951-9.629Z" transform="translate(-33.959 -1237.884)" fill-rule="evenodd" opacity="0.2"/>
+      <path id="Path_5339" data-name="Path 5339" d="M1267.088,953.208,1261.3,956.5l.1.1,5.672-3.223a2.034,2.034,0,0,0,1.212-1.676A2.1,2.1,0,0,1,1267.088,953.208Z" transform="translate(-1241.525 -936.779)" fill-rule="evenodd" opacity="0.12"/>
+      <path id="Path_5340" data-name="Path 5340" d="M2.94.569,25.563,13.422a2.126,2.126,0,0,1,1.212,1.508,2.035,2.035,0,0,0-1.212-1.676L2.94.4C1.315-.526,0,.246,0,2.1V2.27C0,.414,1.315-.346,2.94.569Z" transform="translate(0 -0.008)" fill="#fff" fill-rule="evenodd" opacity="0.25"/>
+      <g id="Group_7005" data-name="Group 7005" transform="translate(32.293 6.652)">
+        <path id="Path_5341" data-name="Path 5341" d="M2059.8,431.755a7.558,7.558,0,0,1,7.563-7.455,7.112,7.112,0,0,1,5.108,2.054l-1.436,1.436a5.188,5.188,0,0,0-3.673-1.453,5.419,5.419,0,0,0,0,10.836,4.978,4.978,0,0,0,3.762-1.493,4.26,4.26,0,0,0,1.11-2.563h-4.87v-2.032h6.854a7.338,7.338,0,0,1-1.656,6.036,6.818,6.818,0,0,1-5.2,2.091,7.557,7.557,0,0,1-7.565-7.455Zm20.067-2.145a4.8,4.8,0,1,0,4.818,4.8A4.734,4.734,0,0,0,2079.87,429.61Zm0,7.71a2.917,2.917,0,1,1,2.708-2.91A2.778,2.778,0,0,1,2079.87,437.32Zm10.512-7.71a4.8,4.8,0,1,0,4.818,4.8A4.731,4.731,0,0,0,2090.382,429.61Zm0,7.71a2.917,2.917,0,1,1,2.709-2.91A2.778,2.778,0,0,1,2090.382,437.32Zm12.9-7.419v.781h-.072a3.316,3.316,0,0,0-2.526-1.074,4.806,4.806,0,0,0,0,9.6,3.27,3.27,0,0,0,2.526-1.09h.072v.69c0,1.836-.981,2.819-2.563,2.819a2.66,2.66,0,0,1-2.419-1.707l-1.837.764a4.577,4.577,0,0,0,4.255,2.836c2.471,0,4.562-1.456,4.562-5V429.9Zm-2.417,7.419a2.919,2.919,0,0,1,0-5.818,2.932,2.932,0,0,1,0,5.818Zm5.872-12.511h2.11v14.11h-2.11Zm7.894,12.511a2.44,2.44,0,0,1-2.325-1.453l6.419-2.657-.221-.546a4.461,4.461,0,0,0-4.109-3.054,4.562,4.562,0,0,0-4.527,4.8,4.7,4.7,0,0,0,4.764,4.8,4.769,4.769,0,0,0,4-2.127l-1.637-1.09A2.742,2.742,0,0,1,2114.631,437.32Zm-.165-5.856a1.861,1.861,0,0,1,1.781,1.018l-4.293,1.783A2.635,2.635,0,0,1,2114.466,431.465Zm13.518-6.655h-5.045v14.11h2.105v-5.345h2.941a4.388,4.388,0,1,0,0-8.764Zm.055,6.8h-2.994v-4.838h2.994a2.42,2.42,0,1,1,0,4.838Zm7.842,7.309v-14.11h-2.106v14.11Zm9.458-.025v-5.409c0-2.505-1.872-3.9-4.288-3.9a3.955,3.955,0,0,0-3.755,2.16l1.869.779a2,2,0,0,1,1.925-1.035,2.026,2.026,0,0,1,2.212,1.817v.146a4.65,4.65,0,0,0-2.2-.546c-2.014,0-4.065,1.107-4.065,3.176a3.259,3.259,0,0,0,3.5,3.1,2.968,2.968,0,0,0,2.686-1.378h.072v1.09h2.035Zm-4.538-1.577c-.69,0-1.653-.345-1.653-1.2,0-1.09,1.2-1.51,2.234-1.51a3.754,3.754,0,0,1,1.925.472A2.559,2.559,0,0,1,2140.8,437.317Zm11.943-7.425-2.414,6.116h-.073l-2.505-6.116h-2.269l3.756,8.551L2147.1,443.2h2.2l5.79-13.306Z" transform="translate(-2059.799 -424.3)" fill-rule="evenodd"/>
+      </g>
+    </g>
+    <text id="GET_IT_ON" data-name="GET IT ON" transform="translate(45.55 12.993)" font-size="7" font-family="Gilroy-Medium, Gilroy ☞" font-weight="500"><tspan x="0" y="0">GET IT ON</tspan></text>
+  </g>
+</svg>

@@ -34,7 +34,11 @@ const AuthStack = () => {
             TransitionPresets.ModalPresentationIOS),
         }}
       />
-      <Stack.Screen name="Onboarding" component={OnboardingScreen} />
+      <Stack.Screen
+        name="Onboarding"
+        component={OnboardingScreen}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };

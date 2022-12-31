@@ -1,6 +1,6 @@
 import {View} from 'react-native';
 import React from 'react';
-import AYWhiteLogo from '../../../assets/svgs/logos/alteryouth_white.svg';
+import AYWhiteLogo from '@assets/svgs/logos/alteryouth_white.svg';
 
 export default function AuthNav() {
   return (

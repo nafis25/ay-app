@@ -1,12 +1,16 @@
-import {Button, Text, View} from 'react-native';
+import {Button, Image, Text, View} from 'react-native';
+import Images from '@assets/paths';
 
 import React from 'react';
 
 const Onboarding = () => {
   return (
-    <View className="flex-1 justify-center items-center">
-      <Text>Onboarding Screen</Text>
-      <Button title="Click Here" onPress={() => alert('Button Clicked!')} />
+    <View className="bg-white h-screen">
+      <Image
+        source={Images.congo}
+        style={{height: 322, width: '100%'}}
+        resizeMode="cover"
+      />
     </View>
   );
 };

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40.144" height="39.917" viewBox="0 0 40.144 39.917">
+  <defs>
+    <filter id="Path_854" x="5.133" y="0" width="35.01" height="35.892" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="bkash_Logo" data-name="bkash Logo" transform="translate(0 3.933)">
+    <g id="objects">
+      <path id="Path_853" data-name="Path 853" d="M.5,0,18.083,2.109c-1.391,5.05-2.718,9.913-4.151,15.132Z" transform="translate(-0.361)" fill="#e20f6d"/>
+      <g transform="matrix(1, 0, 0, 1, 0, -3.93)" filter="url(#Path_854)">
+        <path id="Path_854-2" data-name="Path 854" d="M67.81,25.322,50.8,22.651C52.191,17.6,53.535,12.7,54.973,7.43Z" transform="translate(-36.67 -1.43)" fill="#e20f6d"/>
+      </g>
+      <path id="Path_855" data-name="Path 855" d="M51,64.29l15.817,2.5.117.356L53.2,74.036C52.45,70.733,51.754,67.662,51,64.29Z" transform="translate(-36.811 -46.404)" fill="#e20f6d"/>
+      <path id="Path_856" data-name="Path 856" d="M35.186,65.49c.818,3.725,1.644,7.448,2.423,11.181a1.027,1.027,0,0,1-.32.818,88.475,88.475,0,0,1-7.54,5.765L34.791,65.49Z" transform="translate(-21.473 -47.27)" fill="#e20f6d"/>
+      <path id="Path_857" data-name="Path 857" d="M100.542,48.9,95.32,41.63l8.441-1.5Z" transform="translate(-68.8 -28.965)" fill="#e20f6d"/>
+      <path id="Path_858" data-name="Path 858" d="M68.73,81.074,80.415,75.12l.345.278c-.356.537-.593,1.349-1.088,1.564-3.595,1.53-7.225,2.952-10.842,4.412Z" transform="translate(-49.608 -54.22)" fill="#e20f6d"/>
+      <path id="Path_859" data-name="Path 859" d="M6.624,17.316,0,11.048.125,10.6c.69.172,1.636.117,2.02.556,1.669,1.9,3.163,3.945,4.73,5.937Z" transform="translate(0 -7.651)" fill="#e20f6d"/>
+      <path id="Path_860" data-name="Path 860" d="M124.168,40.77l3.339,3.358H123Z" transform="translate(-88.779 -29.427)" fill="#e20f6d"/>
+    </g>
+  </g>
+</svg>

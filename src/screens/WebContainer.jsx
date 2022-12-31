@@ -78,7 +78,7 @@ const WebContainer = ({route, navigation}) => {
       </View>
 
       <WebView
-        source={{uri: url ?? 'https://alteryouth.com'}}
+        source={{uri: url ?? 'https://app.alteryouth.com/404'}}
         onNavigationStateChange={handleWebViewNavigationStateChange}
         androidLayerType={'hardware'}
         onLoadEnd={() => setIsLoading(false)}
