@@ -24,40 +24,39 @@ export const globalDateFormatter = (date, type) => {
   try {
     let formattedDate;
     let dateObject = new Date(date);
+
+    switch (type) {
+      case 'general':
+        formattedDate = dateObject.toLocaleDateString('en-GB', {
+          day: 'numeric',
+          month: 'numeric',
+          year: '2-digit',
+        });
+        break;
+      case 'session':
+        let longMonth = dateObject.toLocaleDateString('en-GB', {
+          month: 'long',
+        });
+        let shortYear = dateObject.toLocaleDateString('en-GB', {
+          year: '2-digit',
+        });
+        formattedDate = `${longMonth} '${shortYear}`;
+        break;
+      case 'long':
+        let day = ordinalFormatter(dateObject);
+
+        let monthAndYear = dateObject.toLocaleDateString('en-GB', {
+          month: 'long',
+          year: 'numeric',
+        });
+        formattedDate = `${day} ${monthAndYear}`;
+        break;
+    }
+    return formattedDate;
   } catch (err) {
     console.log(err);
     return 'Invalid Date';
   }
-
-  switch (type) {
-    case 'general':
-      formattedDate = dateObject.toLocaleDateString('en-GB', {
-        day: 'numeric',
-        month: 'numeric',
-        year: '2-digit',
-      });
-      break;
-    case 'session':
-      let longMonth = dateObject.toLocaleDateString('en-GB', {
-        month: 'long',
-      });
-      let shortYear = dateObject.toLocaleDateString('en-GB', {
-        year: '2-digit',
-      });
-      formattedDate = `${longMonth} '${shortYear}`;
-      break;
-    case 'long':
-      let day = ordinalFormatter(dateObject);
-
-      let monthAndYear = dateObject.toLocaleDateString('en-GB', {
-        month: 'long',
-        year: 'numeric',
-      });
-      formattedDate = `${day} ${monthAndYear}`;
-      break;
-  }
-
-  return formattedDate;
 };
 
 export const recencyDateFormatter = (startDate, type) => {

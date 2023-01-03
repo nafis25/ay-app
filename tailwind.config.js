@@ -18,6 +18,7 @@ module.exports = {
       colors: {
         'ay-green': '#1dc468',
         'ay-lightgray': '#f5f5f5',
+        bkash: '#e20f6d',
       },
     },
   },
