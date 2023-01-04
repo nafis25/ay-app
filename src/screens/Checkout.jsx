@@ -15,7 +15,7 @@ import {usePortal, useSiteData} from '../requests/queries';
 
 import {BDT_SCHOLARSHIP_AMOUNT, BDT_SERVICE_CHARGE, USD_TOTAL} from '../config';
 import {styled} from 'nativewind';
-import PaymentOptions from '../components/PaymentOptions/PaymentOptions';
+import PaymentOptions from '../components/PaymentOptions';
 
 const Checkout = ({navigation}) => {
   const {data: statResponse, status: statStatus} = useSiteData();
@@ -46,7 +46,7 @@ const Checkout = ({navigation}) => {
   }, [statResponse, statStatus, qty]);
 
   return (
-    <ScrollView className="bg-white" contentContainerStyle="px-4 py-10">
+    <ScrollView className="bg-white" contentContainerStyle="px-4 pt-6 pb-10">
       <View className="flex flex-col gap-6">
         <TouchableOpacity
           className="flex justify-center items-center bg-gray-100 rounded-full h-8 w-8"

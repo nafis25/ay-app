@@ -11,13 +11,12 @@ import {
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import {usePortal} from '../requests/queries';
-import {PortalContext} from '../contexts/PortalContext';
-import {isEmpty} from '../utils/functions';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 const Tab = createMaterialTopTabNavigator();
 
 const PortalTabs = () => {
+  const insets = useSafeAreaInsets();
   return (
     <Tab.Navigator
       tabBarPosition="bottom"
@@ -32,7 +31,7 @@ const PortalTabs = () => {
           width: 40,
           left: (Dimensions.get('window').width / 5 - 40) / 2,
         },
-        // tabBarStyle: {paddingBottom: 30},
+        tabBarStyle: {paddingBottom: insets.bottom},
         tabBarIconStyle: {
           // borderWidth: 1,
           // borderColor: 'green',

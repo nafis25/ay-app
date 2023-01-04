@@ -5,6 +5,7 @@ import SchoolScreen from './School';
 import PaymentScreen from './Payment';
 import LoginScreen from './Login';
 import OnboardingScreen from './Onboarding';
+import OnboardingCompleteScreen from './OnboardingComplete';
 import SignupScreen from './Signup';
 import OtpScreen from './OTP';
 import CheckoutScreen from './Checkout';
@@ -21,6 +22,7 @@ export {
   HomeScreen,
   LoginScreen,
   OnboardingScreen,
+  OnboardingCompleteScreen,
   SignupScreen,
   OtpScreen,
   SettingsScreen,
