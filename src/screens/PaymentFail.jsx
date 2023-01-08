@@ -27,7 +27,7 @@ const PaymentFail = ({route, navigation}) => {
   };
 
   return (
-    <View className="bg-white h-screen flex-1 justify-center px-4">
+    <View className="bg-white h-screen flex-1 justify-center px-6">
       <View className="flex flex-col gap-4">
         <View className="">
           <Ionicons

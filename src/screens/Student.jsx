@@ -15,7 +15,7 @@ import {Flow} from 'react-native-animated-spinkit';
 
 const NoStudentView = () => {
   return (
-    <View className="flex-1 justify-center h-screen px-4">
+    <View className="flex-1 justify-center h-screen px-6">
       <Text className="font-gilroybold text-lg mb-1">Student Details</Text>
       <Text className="font-gilroymedium">
         Get to know more about your students
@@ -39,7 +39,7 @@ const DeadstateView = () => {
             uri: profile_photo_url,
           }}
         />
-        <View className="px-4 py-5">
+        <View className="px-6 py-7">
           <View className="flex flex-row justify-between">
             <BoldText className="text-ay-green">
               Scholarship Session: May '23
@@ -111,7 +111,7 @@ const Student = () => {
             uri: img_base_url + selected_student.details.profile_photo,
           }}
         />
-        <View className="px-4 py-5">
+        <View className="px-6 py-7">
           <View className="flex flex-row justify-between">
             <BoldText className="text-ay-green">
               {isEmpty(droppedStudent)
@@ -179,7 +179,7 @@ const Student = () => {
             uri: img_base_url + selected_student.details.family_photo,
           }}
         />
-        <View className="px-4 py-5">
+        <View className="px-6 py-7">
           <View>
             <GrayText>
               Photo of {selected_student.nick_name} with{' '}
@@ -240,7 +240,7 @@ const Student = () => {
             uri: img_base_url + selected_student.school.address.upazila.image,
           }}
         />
-        <View className="px-4 py-5">
+        <View className="px-6 py-7">
           <BoldText>{selected_student.nick_name}'s Home</BoldText>
           <View className="my-5">
             <Text className="font-gilroybold text-2xl -mb-1">

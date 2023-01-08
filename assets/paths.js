@@ -1,11 +1,16 @@
+const iconPath = '../assets/icons/';
+const imagePath = '../assets/images/';
+
 export default {
   // AY_logo: require('../assets/images'),
-  scb: require('../assets/icons/standard-chartered-bank.png'),
-  ebl: require('../assets/icons/eastern-bank.png'),
-  hsbc: require('../assets/icons/hsbc-bank.png'),
-  brac: require('../assets/icons/brac-bank.png'),
-  ific: require('../assets/icons/ific-bank.png'),
-  prime: require('../assets/icons/prime-bank.png'),
-  ucb: require('../assets/icons/ucb-bank.png'),
-  congo: require('../assets/images/congo_banner.jpg'),
+  scb: require(iconPath + 'standard-chartered-bank.png'),
+  ebl: require(iconPath + 'eastern-bank.png'),
+  hsbc: require(iconPath + 'hsbc-bank.png'),
+  brac: require(iconPath + 'brac-bank.png'),
+  ific: require(iconPath + 'ific-bank.png'),
+  prime: require(iconPath + 'prime-bank.png'),
+  ucb: require(iconPath + 'ucb-bank.png'),
+  congo: require(imagePath + 'congo_banner.jpg'),
+  home_active: require(imagePath + 'portal_active_home.jpg'),
+  home_inactive: require(imagePath + 'portal_inactive_home.jpg'),
 };

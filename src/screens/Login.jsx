@@ -210,7 +210,7 @@ const Login = ({navigation}) => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <View className="bg-white h-screen px-4 py-10">
+      <View className="bg-white h-screen px-6 py-10">
         {/* <AuthNav /> */}
         <View className="flex flex-col gap-4">
           <Text className="font-gilroybold text-xl">Log in or sign up</Text>

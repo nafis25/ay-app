@@ -149,3 +149,24 @@ export const removeInitRoute = async () => {
     console.error(error);
   }
 };
+
+export const setIsOnboarded = async () => {
+  try {
+    await AsyncStorage.setItem('isOnboarded', 'true');
+    console.log('isOnboarded Set!');
+  } catch (error) {
+    console.log('error setting isOnboarded');
+    console.error(error);
+  }
+};
+
+export const getIsOnboarded = async () => {
+  try {
+    const isOnboarded = await AsyncStorage.getItem('isOnboarded');
+    return isOnboarded !== null ? true : false;
+  } catch (error) {
+    console.log('error retrieving isOnboarded');
+    console.error(error);
+    return true;
+  }
+};

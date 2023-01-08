@@ -46,7 +46,7 @@ const Checkout = ({navigation}) => {
   }, [statResponse, statStatus, qty]);
 
   return (
-    <ScrollView className="bg-white" contentContainerStyle="px-4 pt-6 pb-10">
+    <ScrollView className="bg-white" contentContainerStyle="p-6 pb-10">
       <View className="flex flex-col gap-6">
         <TouchableOpacity
           className="flex justify-center items-center bg-gray-100 rounded-full h-8 w-8"

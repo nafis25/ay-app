@@ -4,9 +4,13 @@ import {PrimaryButton} from '../components/Buttons';
 
 import React from 'react';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useContext} from 'react';
+import {AuthContext} from '../contexts/AuthContext';
 
 const OnboardingComplete = () => {
   const insets = useSafeAreaInsets();
+  const {handleOnboard} = useContext(AuthContext);
+
   return (
     <ImageBackground
       source={Images.congo}
@@ -17,7 +21,11 @@ const OnboardingComplete = () => {
         <Text className="font-gilroybold text-5xl text-white tracking-tighter">
           Ensure a {'\n'}literate {'\n'}citizen for {'\n'}Bangladesh
         </Text>
-        <PrimaryButton title={'start'} transform="uppercase" />
+        <PrimaryButton
+          title={'start'}
+          transform="uppercase"
+          handleFn={handleOnboard}
+        />
       </View>
     </ImageBackground>
   );

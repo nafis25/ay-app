@@ -24,7 +24,7 @@ function PrivacySheet({sheetId, payload: {student, dhlPic}}) {
       drawUnderStatusBar={true}
       gestureEnabled={true}>
       <View className="pt-6">
-        <ScrollView className="px-4">
+        <ScrollView className="px-6">
           <Pressable>
             <View>
               <StyledImage

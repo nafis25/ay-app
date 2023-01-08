@@ -195,7 +195,7 @@ const Signup = ({route, navigation}) => {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <View className="bg-white h-screen px-4 py-10">
+      <View className="bg-white h-screen px-6 py-10">
         <View className="flex gap-3">
           <View className="flex flex-row justify-center items-center text-xl pb-3">
             <Text className="font-gilroy text-xl font-bold">

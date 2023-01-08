@@ -14,7 +14,7 @@ import {PrimaryButton} from '../components/Buttons';
 const Congratulations = () => {
   return (
     <ScrollView className="bg-white" contentContainerStyle="py-10">
-      <View className="px-4 mb-6">
+      <View className="px-6 mb-6">
         <Text className="font-gilroybold text-xl mb-2">
           🥳 Congratulations Nafis!
         </Text>

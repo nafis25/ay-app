@@ -61,7 +61,7 @@ const Notifications = ({navigation}) => {
     );
 
   return (
-    <ScrollView className="bg-white" contentContainerStyle="px-4 py-5">
+    <ScrollView className="bg-white" contentContainerStyle="px-6 py-5">
       {isEmpty(nootyResponse?.data) ? (
         <Text className="fw-bold">No notifications to show</Text>
       ) : (

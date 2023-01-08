@@ -26,7 +26,7 @@ const DeadstateView = () => {};
 
 const NoStudentView = () => {
   return (
-    <View className="flex-1 justify-center h-screen px-4">
+    <View className="flex-1 justify-center h-screen px-6">
       <Text className="font-gilroybold text-lg mb-1">
         Scholarship Transactions
       </Text>
@@ -79,7 +79,7 @@ const Scholarships = () => {
             uri: img_base_url + selected_student.details.family_photo,
           }}
         />
-        <View className="px-4 py-5">
+        <View className="px-6 py-7">
           <BoldText className="text-ay-green">
             {isEmpty(droppedStudent)
               ? `Scholarship Session: ${moment(
@@ -92,7 +92,7 @@ const Scholarships = () => {
                 ).format("MMMM 'YY")}`}
           </BoldText>
 
-          <View className="flex flex-row justify-between px-4 py-3 mt-5 mb-8 bg-white rounded-lg shadow">
+          <View className="flex flex-row justify-between px-6 py-5 mt-5 mb-8 bg-white rounded-lg shadow">
             <View>
               <NormalText className="mb-1">
                 {selected_student.nick_name}'s{' '}
@@ -209,7 +209,7 @@ const Scholarships = () => {
           }}
         />
         <View className="py-5">
-          <View className="px-4">
+          <View className="px-6">
             <BoldText className="text-ay-green">
               {isEmpty(droppedStudent)
                 ? `Scholarship Session: ${moment(
@@ -222,7 +222,7 @@ const Scholarships = () => {
                   ).format("MMMM 'YY")}`}
             </BoldText>
           </View>
-          <View className="px-4">
+          <View className="px-6">
             <Pressable
               onPress={() =>
                 SheetManager.show('privacy-sheet', {
@@ -235,7 +235,7 @@ const Scholarships = () => {
                   },
                 })
               }
-              className="flex flex-row justify-between px-4 py-3 mt-5 mb-10 bg-white rounded-lg shadow">
+              className="flex flex-row justify-between px-6 py-5 mt-5 mb-10 bg-white rounded-lg shadow">
               <View>
                 <NormalText className="mb-1">
                   {selected_student.nick_name}'s{' '}
@@ -259,7 +259,7 @@ const Scholarships = () => {
               </View>
             </Pressable>
           </View>
-          <View className="px-4 mb-6">
+          <View className="px-6 mb-6">
             <SvgBkashLogo />
             <HeadingText className="mt-3 mb-1">
               Scholarship Transactions

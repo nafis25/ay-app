@@ -129,7 +129,7 @@ function PaymentSheet({sheetId, payload}) {
           payload: {success: false, url: null},
         })
       }>
-      <View className="flex flex-col gap-6 px-4 py-10">
+      <View className="flex flex-col gap-6 px-6 pt-6 pb-10">
         <View>
           <Text className="font-gilroybold text-lg mb-1">
             Monthly Subscription

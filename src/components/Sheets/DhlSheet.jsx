@@ -31,11 +31,11 @@ function DhlSheet({sheetId, payload: dhlInfo}) {
       drawUnderStatusBar={true}
       gestureEnabled={true}>
       <View className="pt-6">
-        <Text className="px-4 font-gilroybold text-lg mb-3">
-          Mobile phone shipment
-        </Text>
-        <ScrollView {...scrollHandlers} className="px-4">
+        <ScrollView {...scrollHandlers} className="px-6">
           <Pressable>
+            <Text className="font-gilroybold text-lg mb-3">
+              Mobile phone shipment
+            </Text>
             <View className="border border-black mb-4">
               <View className="bg-black px-2 py-3">
                 <Text className="font-gilroybold text-base text-white">

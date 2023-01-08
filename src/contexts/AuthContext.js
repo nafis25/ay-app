@@ -12,13 +12,17 @@ import {
   setTokens,
   removeUserName,
   removeInitRoute,
+  getIsOnboarded,
+  setIsOnboarded,
 } from '../requests/TokenHandler';
 
 const initialState = {
   user: null,
   authLoading: true,
+  onboardLoading: true,
   isSignout: false,
   isLoggedIn: false,
+  hasOnboarded: false,
   location: {
     loading: false,
     error: null,
@@ -46,6 +50,11 @@ const AuthContext = createContext({
 
 const authReducer = (state, {payload, type}) => {
   switch (type) {
+    case 'ONBOARD':
+      return {
+        ...state,
+        hasOnboarded: true,
+      };
     case 'LOGIN':
       return {
         ...state,
@@ -73,6 +82,16 @@ const authReducer = (state, {payload, type}) => {
       return {
         ...state,
         authLoading: false,
+      };
+    case 'ONBOARD_LOADING':
+      return {
+        ...state,
+        onboardLoading: true,
+      };
+    case 'ONBOARD_FINISH':
+      return {
+        ...state,
+        onboardLoading: false,
       };
     case 'LOCATION_LOADING':
       return {
@@ -145,6 +164,22 @@ const AuthProvider = props => {
     let user_obj = await getUser();
     if (token && user_obj) dispatch({type: 'LOGIN', payload: user_obj});
     dispatch({type: 'AUTH_FINISH'});
+  };
+
+  const checkOnboarding = async () => {
+    dispatch({type: 'ONBOARD_LOADING'});
+    let status = await getIsOnboarded();
+    if (status) dispatch({type: 'ONBOARD'});
+    dispatch({type: 'ONBOARD_FINISH'});
+  };
+
+  const handleOnboard = async () => {
+    try {
+      await setIsOnboarded();
+      dispatch({type: 'ONBOARD'});
+    } catch (error) {
+      console.error('Error at setItem isOnboarded', error);
+    }
   };
 
   const login = async userData => {
@@ -223,13 +258,17 @@ const AuthProvider = props => {
       value={{
         user: state.user,
         isLoggedIn: state.isLoggedIn,
+        hasOnboarded: state.hasOnboarded,
         isSignout: state.isSignout,
         authLoading: state.authLoading,
+        onboardLoading: state.onboardLoading,
         location: state.location,
         leaderboard: state.leaderboard,
         stats: state.stats,
         stock: state.stock,
         checkAuth,
+        checkOnboarding,
+        handleOnboard,
         login,
         logout,
         getSiteData,
