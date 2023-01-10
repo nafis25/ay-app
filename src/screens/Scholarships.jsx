@@ -1,10 +1,9 @@
 import {Image, Pressable, ScrollView, Text, View} from 'react-native';
 
 import React, {useContext} from 'react';
-import moment from 'moment';
 import {PortalContext} from '../contexts/PortalContext';
 import {usePortal} from '../requests/queries';
-import {Divider, Skeleton} from '@rneui/base';
+import {Skeleton} from '@rneui/base';
 import {styled} from 'nativewind';
 import {img_base_url} from '../config';
 import {
@@ -82,14 +81,17 @@ const Scholarships = () => {
         <View className="px-6 py-7">
           <BoldText className="text-ay-green">
             {isEmpty(droppedStudent)
-              ? `Scholarship Session: ${moment(
+              ? `Scholarship Session: ${globalDateFormatter(
                   selected_student.scholarship_start_date,
-                ).format("MMMM 'YY")}`
-              : `Scholarship from ${moment(
+                  'session',
+                )}`
+              : `Scholarship from ${globalDateFormatter(
                   droppedStudent.scholarship_start_date,
-                ).format("MMMM 'YY")} to ${moment(
+                  'session',
+                )} to ${globalDateFormatter(
                   droppedStudent.last_payment_for_month,
-                ).format("MMMM 'YY")}`}
+                  'session',
+                )}`}
           </BoldText>
 
           <View className="flex flex-row justify-between px-6 py-5 mt-5 mb-8 bg-white rounded-lg shadow">
@@ -212,14 +214,17 @@ const Scholarships = () => {
           <View className="px-6">
             <BoldText className="text-ay-green">
               {isEmpty(droppedStudent)
-                ? `Scholarship Session: ${moment(
+                ? `Scholarship Session: ${globalDateFormatter(
                     selected_student.scholarship_start_date,
-                  ).format("MMMM 'YY")}`
-                : `Scholarship from ${moment(
+                    'session',
+                  )}`
+                : `Scholarship from ${globalDateFormatter(
                     droppedStudent.scholarship_start_date,
-                  ).format("MMMM 'YY")} to ${moment(
+                    'session',
+                  )} to ${globalDateFormatter(
                     droppedStudent.last_payment_for_month,
-                  ).format("MMMM 'YY")}`}
+                    'session',
+                  )}`}
             </BoldText>
           </View>
           <View className="px-6">

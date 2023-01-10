@@ -9,17 +9,19 @@ import {
   View,
 } from 'react-native';
 
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Video from 'react-native-video';
 import React, {useContext, useRef, useState} from 'react';
 import {usePortal} from '../requests/queries';
 import Images from '@assets/paths';
 import {styled} from 'nativewind';
 import {AuthContext} from '../contexts/AuthContext';
-import {PrimaryButton} from '../components/Buttons';
+import {OutlineButton, PrimaryButton} from '../components/Buttons';
 import {firstName, globalDateFormatter, isEmpty} from '../utils/functions';
 import {addReferral} from '../requests/PortalRequests';
 import Toast from 'react-native-toast-message';
 import CommunitySection from '../components/CommunitySection';
+import StudentCarousel from '../components/Carousels/Student/component/Slider';
 
 const explainer = '../../assets/videos/ay_explainer.mp4';
 
@@ -176,7 +178,7 @@ const Home = ({navigation}) => {
       const videoRef = useRef(null);
       const [videoShow, setVideoShow] = useState(false);
       return (
-        <View className=" pt-3 pb-6">
+        <View>
           <HeadingText className="px-6 mb-5">
             We are moving towards a literate Bangladesh
           </HeadingText>
@@ -191,7 +193,7 @@ const Home = ({navigation}) => {
             />
           ) : (
             <ImageBackground
-              source={Images.congo}
+              source={Images.video_banner}
               className="h-80 flex items-center justify-center">
               <Pressable onPress={() => setVideoShow(true)}>
                 <Text className="text-white text-xl">Play</Text>
@@ -208,10 +210,16 @@ const Home = ({navigation}) => {
 
     return (
       <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-        <View>
-          <Hero />
-          <CommunitySection />
-          <VideoSection />
+        <View className="pb-6">
+          <View>
+            <Hero />
+          </View>
+          <View className="py-8">
+            <CommunitySection />
+          </View>
+          <View>
+            <VideoSection />
+          </View>
         </View>
       </TouchableWithoutFeedback>
     );
@@ -235,27 +243,43 @@ const Home = ({navigation}) => {
               Spread the love.
             </NormalText>
 
-            <Pressable className="bg-white rounded-lg mb-3">
-              <Text className="font-gilroymedium text-teal-700 underline px-4 py-5 leading-3">
-                alteryouth.com/invite/khandakar25
+            <Pressable className="bg-white rounded-lg px-4 mb-3 flex flex-row justify-between items-center">
+              <Text className="font-gilroymedium text-teal-700 underline py-5 leading-3">
+                alteryouth.com/invite/
+                {portalResponse?.data.user_info.invite_code}
               </Text>
+              <MaterialIcons color="#047857" size={20} name="content-copy" />
             </Pressable>
 
             <PrimaryButton
               title="Share"
               transform="uppercase"
-              containerClass={'bg-teal-700 w-60'}
+              bgColor={'bg-teal-700'}
+              containerClass={'w-60'}
               // handleFn={() => navigation.navigate('Checkout')}
             />
           </View>
         </ImageBackground>
       );
     };
+
+    const CarouselSection = () => {
+      return (
+        <View>
+          <View className="px-6 flex flex-row justify-between items-center border-b border-gray-200 py-6">
+            <HeadingText>Your Scholarships</HeadingText>
+            <OutlineButton title="Add Student" buttonPadding="py-2 px-5" />
+          </View>
+
+          <StudentCarousel studentData={portalResponse?.data.students} />
+        </View>
+      );
+    };
     const VideoSection = () => {
       const videoRef = useRef(null);
       const [videoShow, setVideoShow] = useState(false);
       return (
-        <View className=" pt-3 pb-6">
+        <View>
           <HeadingText className="px-6 mb-5">
             We are moving towards a literate Bangladesh
           </HeadingText>
@@ -270,7 +294,7 @@ const Home = ({navigation}) => {
             />
           ) : (
             <ImageBackground
-              source={Images.congo}
+              source={Images.video_banner}
               className="h-80 flex items-center justify-center">
               <Pressable onPress={() => setVideoShow(true)}>
                 <Text className="text-white text-xl">Play</Text>
@@ -286,10 +310,19 @@ const Home = ({navigation}) => {
     };
 
     return (
-      <View>
-        <Hero />
-        <CommunitySection />
-        <VideoSection />
+      <View className="pb-6">
+        <View>
+          <Hero />
+        </View>
+        <View>
+          <CarouselSection />
+        </View>
+        <View className="py-8">
+          <CommunitySection />
+        </View>
+        <View>
+          <VideoSection />
+        </View>
       </View>
     );
   };

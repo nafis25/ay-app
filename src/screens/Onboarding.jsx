@@ -1,11 +1,11 @@
 import {View} from 'react-native';
-import Slider from '../components/Carousels/Onboarding/component/Slider';
+import OnboardingCarousel from '../components/Carousels/Onboarding/component/Slider';
 import React from 'react';
 
 const Onboarding = () => {
   return (
     <View className="bg-white h-screen">
-      <Slider />
+      <OnboardingCarousel />
     </View>
   );
 };

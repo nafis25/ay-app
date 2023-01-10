@@ -1,3 +1,4 @@
 import PrimaryButton from './Primary';
+import OutlineButton from './Outline';
 
-export {PrimaryButton};
+export {PrimaryButton, OutlineButton};

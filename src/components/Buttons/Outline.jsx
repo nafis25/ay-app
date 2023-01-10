@@ -2,8 +2,8 @@ import {Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Flow} from 'react-native-animated-spinkit';
 
-const Primary = ({
-  bgColor,
+const Outline = ({
+  borderColor,
   buttonPadding,
   containerClass,
   handleFn,
@@ -13,17 +13,17 @@ const Primary = ({
 }) => {
   return (
     <TouchableOpacity
-      className={`rounded-lg ${
-        bgColor ?? 'bg-ay-green'
+      className={`rounded-xl border ${
+        borderColor ?? 'border-ay-green'
       } flex flex-row justify-center ${containerClass ?? ''}`}
       onPress={() => handleFn()}>
       {loading ? (
-        <Flow color="white" size={38} className="my-5" />
+        <Flow color="#1dc468" size={38} className="my-5" />
       ) : (
         <Text
           className={`font-gilroy font-bold ${
             transform ?? ''
-          } text-white text-center ${buttonPadding ?? 'p-4'}`}>
+          } text-ay-green text-center ${buttonPadding ?? 'p-4'}`}>
           {title ?? 'Start'}
         </Text>
       )}
@@ -31,4 +31,4 @@ const Primary = ({
   );
 };
 
-export default Primary;
+export default Outline;

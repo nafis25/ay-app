@@ -37,7 +37,7 @@ const Leaderboard = () => {
     <View className="flex flex-col gap-4">
       {leaderData?.map((leader, index) => (
         <View
-          key={index}
+          key={index.toString()}
           className="flex flex-row items-center justify-between border border-gray-200 rounded-lg px-5 py-4">
           <View>
             <View className="flex flex-row items-center">
@@ -116,7 +116,7 @@ const Leaderboard = () => {
 
 const CommunitySection = () => {
   return (
-    <View className="p-6">
+    <View className="px-6">
       <Text className="font-gilroybold text-xl mb-5">
         The Scholarship Community
       </Text>

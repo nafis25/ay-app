@@ -6,7 +6,7 @@ import Pagination from './Pagination';
 import NextButton from './NextButton';
 import {useNavigation} from '@react-navigation/native';
 
-const Slider = () => {
+const OnboardingCarousel = () => {
   const [index, setIndex] = useState(0);
   const slidesRef = useRef(null);
   const navigation = useNavigation();
@@ -45,6 +45,4 @@ const Slider = () => {
   );
 };
 
-export default Slider;
-
-const styles = StyleSheet.create({});
+export default OnboardingCarousel;

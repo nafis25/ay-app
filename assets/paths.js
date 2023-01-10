@@ -11,6 +11,7 @@ export default {
   prime: require(iconPath + 'prime-bank.png'),
   ucb: require(iconPath + 'ucb-bank.png'),
   congo: require(imagePath + 'congo_banner.jpg'),
+  video_banner: require(imagePath + 'video_family_photo.jpg'),
   home_active: require(imagePath + 'portal_active_home.jpg'),
   home_inactive: require(imagePath + 'portal_inactive_home.jpg'),
 };
